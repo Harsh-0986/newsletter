@@ -24,7 +24,7 @@ export default function Home() {
 	};
 
 	return (
-		<div className={styles.container}>
+		<div className="">
 			<Head>
 				<title>Subscribe</title>
 				<meta
@@ -36,6 +36,7 @@ export default function Home() {
 
 			<div
 				className="
+				px-8
 				bg-[#0f1624]
 				w-full
 				h-screen
@@ -43,6 +44,7 @@ export default function Home() {
 				flex flex-col
 				items-center
 				justify-center
+				text-center
 			"
 			>
 				<div className="my-10 max-w-2xl mx-auto">
@@ -56,16 +58,17 @@ export default function Home() {
 					</p>
 				</div>
 				<div>
-					<div className="flex flex-col mx-auto">
+					<div className="flex flex-col mx-auto   ">
 						<input
 							id="email"
 							onChange={(e) => setEmail(e.target.value)}
 							className="
 							px-5
-							py-2
-							rounded-full
-							placeholder-white
 							w-96
+							py-2
+							md:rounded-full
+							rounded-sm
+							placeholder-white
 							block
 							bg-[#1a2b76]
 							text-xl
@@ -88,7 +91,8 @@ export default function Home() {
 							m-3
 							mx-5
 							hover:bg-[#2247e7]
-							rounded-full
+							md:rounded-full
+							rounded-sm
 							cursor-pointer
 							ease-in
 							duration-300
