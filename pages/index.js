@@ -1,9 +1,12 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import React from "react";
+import { db } from "../firebaseApp";
+import { Oval } from "react-loader-spinner";
 
 export default function Home() {
 	const [email, setEmail] = React.useState("");
+	const [loading, setLoading] = React.useState(false);
 
 	const onSubmit = async () => {
 		if (!email) return;
@@ -12,8 +15,12 @@ export default function Home() {
 			method: "POST",
 			body: JSON.stringify(email),
 		})
-			.then(() => console.log("Email sent"))
-			.catch(() => console.log("Error"));
+			.then(async () => {
+				setLoading(true);
+				await db.collection("users").doc(email).set({});
+				setLoading(false);
+			})
+			.catch((e) => console.log(e));
 	};
 
 	return (
@@ -90,7 +97,15 @@ export default function Home() {
 							onClick={onSubmit}
 						>
 							<span className="text-white font-semibold">
-								Subscribe
+								{loading ? (
+									<Oval
+										color="white"
+										height={20}
+										width={80}
+									/>
+								) : (
+									"Subscribe"
+								)}
 							</span>
 						</div>
 					</div>

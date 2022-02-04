@@ -1,3 +1,4 @@
+
 //"use strict";
 const nodemailer = require("nodemailer");
 
@@ -32,9 +33,11 @@ export default async function send_welcome_mail(req, res) {
 
 	try {
 		transporter.sendMail(message, handleSendEmail);
-	} catch (e) {
-		return res.status(500).json({ message: "An internal error occured" });
-	}
+	}	catch(e){
+
+		return res.status(500).json({message: "An error occured"})
+		}
+	
 
 	return res.status(201).json({ message: "Email sent" });
 }
