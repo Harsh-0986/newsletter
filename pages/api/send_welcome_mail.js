@@ -24,17 +24,13 @@ export default async function send_welcome_mail(req, res) {
 
 	const handleSendEmail = (err, data) => {
 		if (err) {
-			console.log(err);
+			return res.status(500).json({ message: err });
 		} else {
 			console.log("Email sent successfully");
 		}
 	};
 
-	try {
 		transporter.sendMail(message, handleSendEmail);
-	} catch (e) {
-		return res.status(500).json({ message: "An error occured" });
-	}
 
 	return res.status(201).json({ message: "Email sent" });
 }
