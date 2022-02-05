@@ -1,5 +1,4 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 import React from "react";
 import { db } from "../firebaseApp";
 import { Oval } from "react-loader-spinner";
@@ -38,7 +37,7 @@ export default function Home() {
 				className="
 				px-8
 				bg-[#0f1624]
-				w-full
+				w-auto
 				h-screen
 				main-bg
 				flex flex-col
@@ -63,11 +62,11 @@ export default function Home() {
 							id="email"
 							onChange={(e) => setEmail(e.target.value)}
 							className="
+							mx-auto
 							px-5
-							w-96
+							w-full
 							py-2
-							md:rounded-full
-							rounded-sm
+						    rounded-full
 							placeholder-white
 							block
 							bg-[#1a2b76]
@@ -91,8 +90,7 @@ export default function Home() {
 							m-3
 							mx-5
 							hover:bg-[#2247e7]
-							md:rounded-full
-							rounded-sm
+						    rounded-full
 							cursor-pointer
 							ease-in
 							duration-300

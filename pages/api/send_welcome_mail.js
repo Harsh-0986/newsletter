@@ -1,4 +1,3 @@
-
 //"use strict";
 const nodemailer = require("nodemailer");
 
@@ -19,8 +18,8 @@ export default async function send_welcome_mail(req, res) {
 	var message = {
 		from: "support@harsh-shah.tk",
 		to: email,
-		subject: "test",
-		html: "<h1>Test msg</h1>",
+		subject: "Welcome to the fam! 👋👋",
+		html: '<h1>Thank you for subscribing to our newsletter</h1><p><h3>Welcome to the family 👋</h3>  <p>Here\'s your joining gift<br />  <a href="https://code-with-harsh.tk/post/vscode-extensions">Top 10 VsCode Extensions</a></p>You have made a great decision by subscribing to our newsletter.<br /></p><a href="https://github.com/Harsh-0986"><img src="https://img.icons8.com/ios-filled/50/000000/github.png"/></a><a href="https://twitter.com/Harsh_Shah2102"><img src="https://img.icons8.com/ios-filled/50/000000/twitter.png"/></a><p>Happy coding!</p>',
 	};
 
 	const handleSendEmail = (err, data) => {
@@ -33,11 +32,9 @@ export default async function send_welcome_mail(req, res) {
 
 	try {
 		transporter.sendMail(message, handleSendEmail);
-	}	catch(e){
-
-		return res.status(500).json({message: "An error occured"})
-		}
-	
+	} catch (e) {
+		return res.status(500).json({ message: "An error occured" });
+	}
 
 	return res.status(201).json({ message: "Email sent" });
 }
