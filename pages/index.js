@@ -2,7 +2,7 @@ import Head from "next/head";
 import React from "react";
 import { db } from "../firebaseApp";
 import { Oval } from "react-loader-spinner";
-import { Success } from "./components";
+import  Success  from "./components/Success";
 
 export default function Home() {
 	const [email, setEmail] = React.useState("");
