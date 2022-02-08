@@ -110,7 +110,7 @@ export default function Home() {
 										width={80}
 									/>
 								) : (
-									"Subscribe"
+							"Subscribe"
 								)}
 							</span>
 						</div>
