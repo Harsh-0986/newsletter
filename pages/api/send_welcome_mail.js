@@ -26,11 +26,11 @@ export default async function send_welcome_mail(req, res) {
 		if (err) {
 			return res.status(500).json({ message: err });
 		} else {
-			console.log("Email sent successfully");
+
+			return res.status(201).json({message:data})
 		}
 	};
 
 		transporter.sendMail(message, handleSendEmail);
 
-	return res.status(201).json({ message: "Email sent" });
 }
