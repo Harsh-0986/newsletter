@@ -2,10 +2,12 @@ import Head from "next/head";
 import React from "react";
 import { db } from "../firebaseApp";
 import { Oval } from "react-loader-spinner";
+import { Success } from "./components";
 
 export default function Home() {
 	const [email, setEmail] = React.useState("");
 	const [loading, setLoading] = React.useState(false);
+	const [success, setSuccess] = React.useState(false);
 
 	const onSubmit = async () => {
 		if (!email) return;
@@ -18,6 +20,7 @@ export default function Home() {
 				setLoading(true);
 				await db.collection("users").doc(email).set({});
 				setLoading(false);
+				setSuccess(true);
 			})
 			.catch((e) => console.log(e));
 	};
@@ -46,6 +49,7 @@ export default function Home() {
 				text-center
 			"
 			>
+				{success && <Success />}
 				<div className="my-10 max-w-2xl mx-auto">
 					<h1 className="text-white font-semibold text-3xl mb-5">
 						Subscribe to our newsletter
